@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+"use client";
+import { useState } from 'react';
 import './SignUP.css'; 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
