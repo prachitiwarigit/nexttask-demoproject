@@ -1,0 +1,49 @@
+/* Login.css */
+
+
+  
+  .login-form {
+    background-color: #ffffff; /* White background for the form */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    padding: 20px;
+    width: 800px; /* Fixed width */
+    margin: auto;
+    margin-top: 40px;
+  }
+  
+  h2 {
+    color: #333; /* Dark color for the heading */
+    margin-bottom: 20px; /* Space below the heading */
+  }
+  
+  label {
+   /* Bold labels */
+    margin-bottom: 5px; /* Space below labels */
+    display: block; /* Block display for labels */
+  }
+  
+  input {
+    width: 100%; /* Full width inputs */
+    padding: 10px; /* Padding for inputs */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 4px; /* Slightly rounded corners */
+    margin-bottom: 15px; /* Space below inputs */
+  }
+  
+
+  .login-button {
+  
+    width: 10%; /* Full width button */
+    padding: 10px; /* Padding for button */
+    background-color: darkgreen;
+    color: white; /* White text color */
+    border: none; /* No border */
+    border-radius: 4px; /* Slightly rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    font-size: 16px; /* Font size */
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
+  
