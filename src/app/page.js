@@ -73,7 +73,9 @@ export default function Page() {
   const [currentView, setCurrentView] = useState("Login"); // Default view is "Login"
 
   useEffect(() =>{
-    setDynamicName(localStorage.getItem('name'));
+    if (typeof window !== 'undefined') {
+       setDynamicName(localStorage.getItem('name'));
+    }
   }, []);
 
   const handleDrawerOpen = () => {
