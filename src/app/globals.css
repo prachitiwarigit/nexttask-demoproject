@@ -46,18 +46,8 @@ a {
   text-align: center;
 }
 
-.css-wn42hu-MuiPaper-root-MuiAppBar-root {
-  --AppBar-background:#7EC2DE !important;
-}
-
-.css-eopq3z-MuiPaper-root-MuiAppBar-root {
-  --AppBar-background:#7EC2DE !important;
-}
-
-.css-1lwhjos-MuiPaper-root-MuiDrawer-paper { 
+.css-aeueu6-MuiDrawer-docked .MuiDrawer-paper {
 background-color: #7EC2DE !important;
-
-color: #fff;
 }
 
 /* Avatar.css */

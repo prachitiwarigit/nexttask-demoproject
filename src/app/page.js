@@ -87,7 +87,7 @@ export default function Page() {
   const renderComponent = () => {
     switch (currentView) {
       case "Login":
-        return  <Login />;
+        return  <SignUP />;
       case "Signup":
         return <SignUP />;
       // case "Dashboard":
@@ -100,7 +100,7 @@ export default function Page() {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <AppBar position="fixed" open={open}>
+      <AppBar position="fixed" open={open} style={{backgroundColor:'#7EC2DE'}}>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -111,7 +111,7 @@ export default function Page() {
           >
             <MenuIcon />
           </IconButton>
-          <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>
+          <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', }}>
         <IconButton color="inherit" aria-label="video tutorial" onClick={() => console.log('Video tutorial clicked!')}>
           <VideoIcon />
         </IconButton>
@@ -134,7 +134,7 @@ export default function Page() {
     </Toolbar>
       
       </AppBar>
-      <Drawer
+      <Drawer style={{backgroundColor:'#7EC2DE'}}
         sx={{
           width: drawerWidth,
           flexShrink: 0,
@@ -147,13 +147,13 @@ export default function Page() {
         anchor="left"
         open={open}
       >
-        <DrawerHeader>
+        <DrawerHeader style={{backgroundColor:'#7EC2DE'}}>
           <IconButton onClick={handleDrawerClose} style={{color:'#fff', backgroundColor:'#0095E7'}}>
             {theme.direction === "ltr" ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </IconButton>
         </DrawerHeader>
         <Divider />
-        <List style={{color:'#fff'}}>
+        <List style={{color:'#fff', backgroundColor:'#7EC2DE'}}>
           {["Dashboard", "Login", "Signup"].map((text, index) => (
             <ListItem key={text} disablePadding>
               <ListItemButton onClick={() => setCurrentView(text)}>
