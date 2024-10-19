@@ -55,7 +55,7 @@ const AppBar = styled(MuiAppBar, {
   }),
 }));
 
-let dynamicname= localStorage.getItem('name')
+
 
 const DrawerHeader = styled("div")(({ theme }) => ({
   display: "flex",
@@ -66,10 +66,15 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 }));
 
 export default function Page() {
-
+ 
   const theme = useTheme();
+  const [dynamicname, setDynamicName] = useState('');
   const [open, setOpen] = useState(false);
   const [currentView, setCurrentView] = useState("Login"); // Default view is "Login"
+
+  useEffect(() =>{
+    setDynamicName(localStorage.getItem('name'));
+  }, []);
 
   const handleDrawerOpen = () => {
     setOpen(true);
