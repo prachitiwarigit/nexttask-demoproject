@@ -27,6 +27,7 @@ const ListCrypto = () => {
   const [page, setPage] = useState(0); // Pagination state
   const [rowsPerPage, setRowsPerPage] = useState(10); // Rows per page state
 
+
   useEffect(() => {
     fetchData();
     fetchDataIcons();
