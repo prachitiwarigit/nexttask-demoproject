@@ -24,6 +24,7 @@ const ListCrypto = () => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
+  const [checkEmail, setcheckEmail] = useState("");
   const [page, setPage] = useState(0); // Pagination state
   const [rowsPerPage, setRowsPerPage] = useState(10); // Rows per page state
 
@@ -31,8 +32,11 @@ const ListCrypto = () => {
   useEffect(() => {
     fetchData();
     fetchDataIcons();
+    if(typeof window !== 'undefined'){
+      setcheckEmail(localStorage.getItem('userEmail'));
+    }
   }, []);
-  let checkEmail = localStorage.getItem('userEmail');
+  
   console.log("t",checkEmail)
 
   const fetchData = async () => {
