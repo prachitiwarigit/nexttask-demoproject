@@ -1,7 +1,19 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { styled, useTheme } from "@mui/material/styles";
-import { Box, CssBaseline, Drawer, List, Typography, Divider, IconButton, ListItem, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
+import {
+  Box,
+  CssBaseline,
+  Drawer,
+  List,
+  Typography,
+  Divider,
+  IconButton,
+  ListItem,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+} from "@mui/material";
 import MuiAppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -9,11 +21,11 @@ import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import SignUP from "./sign-up/SignUP";
 import Login from "./login/Login";
-import ApartmentIcon from '@mui/icons-material/Apartment';
-import VideoIcon from '@mui/icons-material/VideoLibrary';
-import AdminIcon from '@mui/icons-material/AdminPanelSettings'; // Admin icon
-import Avatar from '@mui/material/Avatar';
-
+import ApartmentIcon from "@mui/icons-material/Apartment";
+import VideoIcon from "@mui/icons-material/VideoLibrary";
+import AdminIcon from "@mui/icons-material/AdminPanelSettings"; // Admin icon
+import Avatar from "@mui/material/Avatar";
+import ListCrypto from "./dashboard/ListCrypto";
 
 const drawerWidth = 240;
 
@@ -53,8 +65,6 @@ const AppBar = styled(MuiAppBar, {
   }),
 }));
 
-
-
 const DrawerHeader = styled("div")(({ theme }) => ({
   display: "flex",
   alignItems: "center",
@@ -64,15 +74,15 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 }));
 
 export default function Page() {
- 
   const theme = useTheme();
-  const [dynamicname, setDynamicName] = useState('');
+  const [dynamicname, setDynamicName] = useState("");
   const [open, setOpen] = useState(false);
   const [currentView, setCurrentView] = useState("Login"); // Default view is "Login"
 
-  useEffect(() =>{
-    if (typeof window !== 'undefined') {
-       setDynamicName(localStorage.getItem('name'));
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setDynamicName(localStorage.getItem("name"));
+     
     }
   }, []);
 
@@ -85,22 +95,26 @@ export default function Page() {
   };
 
   const renderComponent = () => {
-    switch (currentView) {
-      case "Login":
-        return  <SignUP />;
-      case "Signup":
-        return <SignUP />;
-      // case "Dashboard":
-      //   return <Dashboard />;
-      default:
+    switch (currentView.toLowerCase()) {
+      case "login":
         return <Login />;
+      case "signup":
+        return <SignUP />;
+      case "dashboard":
+        return <ListCrypto />;
+      default:
+        return <SignUP />; // This should always show SignUP by default
     }
   };
 
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box sx={{ display: "flex", }}>
       <CssBaseline />
-      <AppBar position="fixed" open={open} style={{backgroundColor:'#7EC2DE'}}>
+      <AppBar
+        position="fixed"
+        open={open}
+        style={{ backgroundColor: "#7EC2DE" }}
+      >
         <Toolbar>
           <IconButton
             color="inherit"
@@ -111,35 +125,58 @@ export default function Page() {
           >
             <MenuIcon />
           </IconButton>
-          <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', }}>
-        <IconButton color="inherit" aria-label="video tutorial" onClick={() => console.log('Video tutorial clicked!')}>
-          <VideoIcon />
-        </IconButton>
-        <Typography variant="body1" color="inherit" style={{ }}>
-          Video Tutorial
-        </Typography>
-      </div> &nbsp;
-      <IconButton color="inherit" aria-label="admin" onClick={() => console.log('Admin clicked!')}>
-          <AdminIcon />
-        </IconButton>
-        <Typography variant="body1" color="inherit" style={{ marginLeft: '0px' }}>
-          Admin
-        </Typography> &nbsp; &nbsp;
-        <Avatar 
-          src="https://example.com/path/to/avatar.jpg" 
-          alt="User Name" 
-          size={20} 
-        /> &nbsp;
-        <p>{dynamicname}</p>
-    </Toolbar>
-      
+          <div
+            style={{
+              marginLeft: "auto",
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <IconButton
+              color="inherit"
+              aria-label="video tutorial"
+              onClick={() => console.log("Video tutorial clicked!")}
+            >
+              <VideoIcon />
+            </IconButton>
+            <Typography variant="body1" color="inherit" style={{}}>
+              Video Tutorial
+            </Typography>
+          </div>{" "}
+          &nbsp;
+          <IconButton
+            color="inherit"
+            aria-label="admin"
+            onClick={() => console.log("Admin clicked!")}
+          >
+            <AdminIcon />
+          </IconButton>
+          <Typography
+            variant="body1"
+            color="inherit"
+            style={{ marginLeft: "0px" }}
+          >
+            Admin
+          </Typography>{" "}
+          &nbsp; &nbsp;
+          <Avatar
+            src="https://example.com/path/to/avatar.jpg"
+            alt="User Name"
+            size={20}
+          />
+          &nbsp;
+          <p>{dynamicname}</p>
+          
+        </Toolbar>
       </AppBar>
-      <Drawer style={{backgroundColor:'#7EC2DE'}}
+      <Drawer
+        style={{ backgroundColor: "#7EC2DE" }}
         sx={{
           width: drawerWidth,
           flexShrink: 0,
           "& .MuiDrawer-paper": {
             width: drawerWidth,
+            backgroundColor: "#7EC2DE",
             boxSizing: "border-box",
           },
         }}
@@ -147,27 +184,39 @@ export default function Page() {
         anchor="left"
         open={open}
       >
-        <DrawerHeader style={{backgroundColor:'#7EC2DE'}}>
-          <IconButton onClick={handleDrawerClose} style={{color:'#fff', backgroundColor:'#0095E7'}}>
-            {theme.direction === "ltr" ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+        <DrawerHeader style={{ backgroundColor: "#7EC2DE" }}>
+          <IconButton
+            onClick={handleDrawerClose}
+            style={{ color: "#fff", backgroundColor: "#0095E7" }}
+          >
+            {theme.direction === "ltr" ? (
+              <ChevronLeftIcon />
+            ) : (
+              <ChevronRightIcon />
+            )}
           </IconButton>
         </DrawerHeader>
         <Divider />
-        <List style={{color:'#fff', backgroundColor:'#7EC2DE'}}>
-          {["Dashboard", "Login", "Signup"].map((text, index) => (
+        <List style={{ color: "#fff", }}>
+          {["Dashboard", "Login", "Signup"].map((text) => (
             <ListItem key={text} disablePadding>
-              <ListItemButton onClick={() => setCurrentView(text)}>
+              <ListItemButton
+                onClick={() => setCurrentView(text.toLowerCase())}
+              >
+                {" "}
+                {/* Ensure lowercase */}
                 <ListItemIcon>
-                  {index % 2 === 0 ? <ApartmentIcon style={{color:'#fff'}}/> : <ApartmentIcon style={{color:'#fff'}}/>}
+                  <ApartmentIcon style={{ color: "#fff" }} />
                 </ListItemIcon>
                 <ListItemText primary={text} />
               </ListItemButton>
             </ListItem>
           ))}
         </List>
+
         <Divider />
       </Drawer>
-      <Main open={open}>
+      <Main open={open} >
         <DrawerHeader />
         {renderComponent()}
       </Main>

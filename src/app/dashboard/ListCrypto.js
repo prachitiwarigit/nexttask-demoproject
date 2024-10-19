@@ -154,7 +154,7 @@ const ListCrypto = () => {
           }}
         />
       </div>
-      <div style={{ maxWidth: "900px", margin: "auto", marginTop: "40px" }}>
+      <div style={{ maxWidth: "700px", margin: "auto", marginTop: "40px" }}>
         <TableContainer component={Paper}>
           <Table>
             <TableHead>
